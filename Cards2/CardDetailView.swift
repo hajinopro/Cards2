@@ -29,11 +29,7 @@ struct CardDetailView: View {
     
     var body: some View {
         content
-            .toolbar {
-                ToolbarItem(placement: .bottomBar) {
-                    CardBottomToolbar(cardModal: $currentModal)
-                }
-            }
+            .cardToolbar(currentModal: $currentModal)
             .navigationTitle("Photo Collage")
             .navigationBarTitleDisplayMode(.inline)
     }
