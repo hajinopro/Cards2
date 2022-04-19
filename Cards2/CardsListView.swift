@@ -8,17 +8,21 @@
 import SwiftUI
 
 struct CardsListView: View {
+    @EnvironmentObject var store: CardStore
+    
     let gridItems = [GridItem(.adaptive(minimum: 150))]
     
     var body: some View {
         NavigationView {
             ScrollView(showsIndicators: false) {
                 LazyVGrid(columns: gridItems) {
-                    ForEach(0 ..< 10) { _ in
+                    ForEach(store.cards) { card in
                         NavigationLink {
-                            CardDetailView()
+                            if let index = store.index(for: card) {
+                                CardDetailView(card: $store.cards[index])
+                            }
                         } label: {
-                            CardThumbnailView()
+                            CardThumbnailView(card: card)
                         }
                     }
                 }
@@ -32,6 +36,7 @@ struct CardsListView: View {
 struct CardsListView_Previews: PreviewProvider {
     static var previews: some View {
         CardsListView()
+            .environmentObject(CardStore(defaultData: true))
     }
 }
 

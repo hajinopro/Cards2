@@ -9,21 +9,17 @@ import SwiftUI
 
 struct CardDetailView: View {
     @State private var currentModal: CardModal?
+    @Binding var card: Card
     
     var content: some View {
         ZStack {
-            Capsule()
-                .foregroundColor(.yellow)
-                .resizableView()
-            Text("Resize Me!")
-                .fontWeight(.bold)
-                .font(.system(size: 500))
-                .minimumScaleFactor(0.01)
-                .lineLimit(1)
-                .resizableView()
-            Circle()
-                .resizableView()
-                .offset(CGSize(width: 50, height: 200))
+            card.backgroundColor
+                .edgesIgnoringSafeArea(.all)
+            ForEach(card.elements, id: \.id) { element in
+                CardElementView(element: element)
+                    .resizableView()
+                    //.frame(width: element.transform.size.width, height: element.transform.size.height)
+            }
         }
     }
     
@@ -38,7 +34,7 @@ struct CardDetailView: View {
 struct CardDetailView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            CardDetailView()
+            CardDetailView(card: .constant(initialCards[0]))
                 .navigationBarTitleDisplayMode(.inline)
         }
     }
