@@ -8,11 +8,17 @@
 import SwiftUI
 
 struct CardToolbar: ViewModifier {
+    @EnvironmentObject var viewState: ViewState
     @Binding var currentModal: CardModal?
     
     func body(content: Content) -> some View {
         content
             .toolbar {
+                ToolbarItem {
+                    Button(action: { viewState.showAllCards.toggle() }) {
+                        Text("Done")
+                    }
+                }
                 ToolbarItem(placement: .bottomBar) {
                     CardBottomToolbar(cardModal: $currentModal)
                 }
@@ -24,7 +30,9 @@ struct CardToolbar_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
             Color.green
+                .environmentObject(ViewState())
                 .cardToolbar(currentModal: .constant(.stickerPicker))
+                .navigationBarTitleDisplayMode(.inline)
         }
     }
 }

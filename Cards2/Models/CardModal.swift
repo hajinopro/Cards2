@@ -7,6 +7,9 @@
 
 import SwiftUI
 
-enum CardModal: String {
-    case photoPicker, framePicker, stickerPicker, textPicker
+enum CardModal: Identifiable {
+    var id: Int {
+        hashValue
+    }
+    case photoPicker, framePicker, stickerPicker, textPicker, pencilPicker
 }

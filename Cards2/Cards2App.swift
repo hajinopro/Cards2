@@ -9,11 +9,13 @@ import SwiftUI
 
 @main
 struct Cards2App: App {
+    @StateObject var viewState = ViewState()
     @StateObject var store = CardStore(defaultData: true)
     
     var body: some Scene {
         WindowGroup {
-            CardsListView()
+            CardsView()
+                .environmentObject(viewState)
                 .environmentObject(store)
         }
     }

@@ -8,34 +8,35 @@
 import SwiftUI
 
 struct CardsListView: View {
+    @EnvironmentObject var viewState: ViewState
     @EnvironmentObject var store: CardStore
     
     let gridItems = [GridItem(.adaptive(minimum: 150))]
     
     var body: some View {
-        NavigationView {
-            ScrollView(showsIndicators: false) {
-                LazyVGrid(columns: gridItems) {
-                    ForEach(store.cards) { card in
-                        NavigationLink {
-                            if let index = store.index(for: card) {
-                                CardDetailView(card: $store.cards[index])
+        ScrollView(showsIndicators: false) {
+            LazyVGrid(columns: gridItems) {
+                ForEach(store.cards) { card in
+                    CardThumbnailView(card: card)
+                        .contextMenu {
+                            Button(action: { store.remove(card) }) {
+                                Label("Delete", systemImage: "trash")
                             }
-                        } label: {
-                            CardThumbnailView(card: card)
                         }
-                    }
+                        .onTapGesture {
+                            viewState.showAllCards.toggle()
+                            viewState.selectedCard = card
+                        }
                 }
             }
-            .navigationTitle("Photos")
         }
-        .navigationViewStyle(.stack)
     }
 }
 
 struct CardsListView_Previews: PreviewProvider {
     static var previews: some View {
         CardsListView()
+            .environmentObject(ViewState())
             .environmentObject(CardStore(defaultData: true))
     }
 }

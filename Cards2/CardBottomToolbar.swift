@@ -24,6 +24,9 @@ struct CardBottomToolbar: View {
             Button(action: { cardModal = .textPicker }) {
                 ToolbarButtonView(modal: .textPicker)
             }
+            Button(action: { cardModal = .pencilPicker }) {
+                ToolbarButtonView(modal: .pencilPicker)
+            }
         }
     }
 }
@@ -42,7 +45,8 @@ struct ToolbarButtonView: View {
         .photoPicker: ("Photos", "photo"),
         .framePicker: ("Frame", "square.on.circle"),
         .stickerPicker: ("Sticker", "heart.circle"),
-        .textPicker: ("Text", "textformat")
+        .textPicker: ("Text", "textformat"),
+        .pencilPicker: ("Pencil", "pencil")
     ]
     
     var body: some View {
