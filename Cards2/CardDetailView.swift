@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CardDetailView: View {
+    @EnvironmentObject var viewState: ViewState
     @State private var currentModal: CardModal?
     @Binding var card: Card
     @State private var stickerImage: UIImage?
@@ -18,8 +19,11 @@ struct CardDetailView: View {
         ZStack {
             card.backgroundColor
                 .edgesIgnoringSafeArea(.all)
+                .onTapGesture {
+                    viewState.selectedElement = nil
+                }
             ForEach(card.elements, id: \.id) { element in
-                CardElementView(element: element)
+                CardElementView(element: element, selected: viewState.selectedElement?.id == element.id)
                     .contextMenu {
                         Button(action: { card.remove(element) }) {
                             Label("Delete", systemImage: "trash")
@@ -27,6 +31,9 @@ struct CardDetailView: View {
                     }
                     .resizableView(transform: bindingTransform(for: element))
                     .frame(width: element.transform.size.width, height: element.transform.size.height)
+                    .onTapGesture {
+                        viewState.selectedElement = element
+                    }
             }
         }
     }

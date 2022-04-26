@@ -8,16 +8,18 @@
 import SwiftUI
 
 struct CardBottomToolbar: View {
+    @EnvironmentObject var viewState: ViewState
     @Binding var cardModal: CardModal?
     
     var body: some View {
-        HStack(alignment: .bottom) {
+        HStack(alignment: .bottom, spacing: 0) {
             Button(action: { cardModal = .photoPicker }) {
                 ToolbarButtonView(modal: .photoPicker)
             }
             Button(action: { cardModal = .framePicker }) {
                 ToolbarButtonView(modal: .framePicker)
             }
+            .disabled(viewState.selectedElement == nil || viewState.selectedElement is TextElement)
             Button(action: { cardModal = .stickerPicker }) {
                 ToolbarButtonView(modal: .stickerPicker)
             }
@@ -34,6 +36,7 @@ struct CardBottomToolbar: View {
 struct CardBottomToolbar_Previews: PreviewProvider {
     static var previews: some View {
         CardBottomToolbar(cardModal: .constant(.stickerPicker))
+            .environmentObject(ViewState())
             .previewLayout(.sizeThatFits)
             .padding()
     }
