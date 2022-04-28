@@ -15,6 +15,7 @@ struct CardDetailView: View {
     @State private var images: [UIImage] = []
     @State private var pencilImage: UIImage?
     @State private var frame: AnyShape?
+    @Environment(\.scenePhase) private var scenePhase
     
     var content: some View {
         ZStack {
@@ -46,6 +47,14 @@ struct CardDetailView: View {
     
     var body: some View {
         content
+            .onChange(of: scenePhase, perform: { newValue in
+                if newValue == .inactive {
+                    card.save()
+                }
+            })
+            .onDisappear {
+                card.save()
+            }
             .onDrop(of: [.image], delegate: CardDrop(card: $card))
             .cardToolbar(currentModal: $currentModal)
             .sheet(item: $currentModal) { item in

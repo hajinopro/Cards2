@@ -17,6 +17,9 @@ struct Cards2App: App {
             CardsView()
                 .environmentObject(viewState)
                 .environmentObject(store)
+                .onAppear {
+                    print(FileManager.documentURL ?? "")
+                }
         }
     }
 }
