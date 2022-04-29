@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A074FEB281BE55B00130436 /* AngleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A074FEA281BE55B00130436 /* AngleExtensions.swift */; };
 		7A1660F6280ECE8D0093DF73 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1660F5280ECE8D0093DF73 /* Card.swift */; };
 		7A1660F8280ECE9D0093DF73 /* CardStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1660F7280ECE9D0093DF73 /* CardStore.swift */; };
 		7A1660FA280ED7780093DF73 /* CardElementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1660F9280ED7780093DF73 /* CardElementView.swift */; };
@@ -44,6 +45,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7A074FEA281BE55B00130436 /* AngleExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AngleExtensions.swift; sourceTree = "<group>"; };
 		7A1660F5280ECE8D0093DF73 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		7A1660F7280ECE9D0093DF73 /* CardStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStore.swift; sourceTree = "<group>"; };
 		7A1660F9280ED7780093DF73 /* CardElementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardElementView.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				7A322A7B280D84290098CA7D /* TextExtensions.swift */,
 				7AA49658281AAFDE00CC5BDA /* FileManagerExtensions.swift */,
 				7AA4965A281AB09100CC5BDA /* UIImageExtensions.swift */,
+				7A074FEA281BE55B00130436 /* AngleExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 				7A322A7C280D84290098CA7D /* TextExtensions.swift in Sources */,
 				7AE1B5AC280B7D75004BA8B8 /* CardsListView.swift in Sources */,
 				7A3D82A628102358003D4D7D /* CardsView.swift in Sources */,
+				7A074FEB281BE55B00130436 /* AngleExtensions.swift in Sources */,
 				7A91A75C281812B000530A84 /* Shapes.swift in Sources */,
 				7A1660F6280ECE8D0093DF73 /* Card.swift in Sources */,
 				7A3D82A8281023D8003D4D7D /* SingleCardView.swift in Sources */,
