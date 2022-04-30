@@ -30,6 +30,11 @@ struct Card: Identifiable {
         save()
     }
     
+    mutating func addElement(textElement: TextElement) {
+        elements.append(textElement)
+        save()
+    }
+    
     mutating func update(_ element: CardElement?, frame: AnyShape) {
         if let element = element as? ImageElement,
            let index = element.index(in: elements) {
@@ -114,6 +119,30 @@ extension ImageElement: Codable {
     }
 }
 
+extension TextElement: Codable {
+    enum CodingKeys: CodingKey {
+        case transform, text, textColor, textFont
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        transform = try container.decode(Transform.self, forKey: .transform)
+        text = try container.decode(String.self, forKey: .text)
+        let textColorComponents = try container.decode([CGFloat].self, forKey: .textColor)
+        textColor = Color.color(components: textColorComponents)
+        textFont = try container.decode(String.self, forKey: .textFont)
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(transform, forKey: .transform)
+        try container.encode(text, forKey: .text)
+        let textColorComponents = textColor.colorComponents()
+        try container.encode(textColorComponents, forKey: .textColor)
+        try container.encode(textFont, forKey: .textFont)
+    }
+}
+
 extension Card: Codable {
     enum CodingKeys: CodingKey {
         case id, backgroundColor, imageElements, textElements
@@ -124,6 +153,9 @@ extension Card: Codable {
         let id = try container.decode(String.self, forKey: .id)
         self.id = UUID(uuidString: id) ?? UUID()
         elements += try container.decode([ImageElement].self, forKey: .imageElements)
+        let colorComponents = try container.decode([CGFloat].self, forKey: .backgroundColor)
+        backgroundColor = Color.color(components: colorComponents)
+        elements += try container.decode([TextElement].self, forKey: .textElements)
     }
     
     func encode(to encoder: Encoder) throws {
@@ -131,5 +163,9 @@ extension Card: Codable {
         try container.encode(id.uuidString, forKey: .id)
         let imageElements: [ImageElement] = elements.compactMap { $0 as? ImageElement }
         try container.encode(imageElements, forKey: .imageElements)
+        let colorComponents = backgroundColor.colorComponents()
+        try container.encode(colorComponents, forKey: .backgroundColor)
+        let textElements: [TextElement] = elements.compactMap { $0 as? TextElement }
+        try container.encode(textElements, forKey: .textElements)
     }
 }
