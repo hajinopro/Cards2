@@ -9,14 +9,9 @@ import SwiftUI
 
 struct CardDetailView: View {
     @EnvironmentObject var viewState: ViewState
-    @State private var currentModal: CardModal?
     @Binding var card: Card
-    @State private var stickerImage: UIImage?
-    @State private var images: [UIImage] = []
-    @State private var pencilImage: UIImage?
-    @State private var frame: AnyShape?
+    @State private var currentModal: CardModal?
     @Environment(\.scenePhase) private var scenePhase
-    @State private var textElement = TextElement()
     
     var content: some View {
         ZStack {
@@ -58,50 +53,7 @@ struct CardDetailView: View {
             }
             .onDrop(of: [.image], delegate: CardDrop(card: $card))
             .cardToolbar(currentModal: $currentModal)
-            .sheet(item: $currentModal) { item in
-                switch item {
-                case .stickerPicker:
-                    StickerPicker(stickerImage: $stickerImage)
-                        .onDisappear {
-                            if let stickerImage = stickerImage {
-                                card.addElement(uiImage: stickerImage)
-                            }
-                            stickerImage = nil
-                        }
-                case .photoPicker:
-                    PhotoPicker(images: $images)
-                        .onDisappear {
-                            for image in images {
-                                card.addElement(uiImage: image)
-                            }
-                            images = []
-                        }
-                case .pencilPicker:
-                    PencilPicker(pencilImage: $pencilImage)
-                        .onDisappear {
-                            if let pencilImage = pencilImage {
-                                card.addElement(uiImage: pencilImage)
-                            }
-                            pencilImage = nil
-                        }
-                case .framePicker:
-                    FramePicker(frame: $frame)
-                        .onDisappear {
-                            if let frame = frame {
-                                card.update(viewState.selectedElement, frame: frame)
-                            }
-                            frame = nil
-                        }
-                case .textPicker:
-                    TextPicker(textElement: $textElement)
-                        .onDisappear {
-                            if !textElement.text.isEmpty {
-                                card.addElement(textElement: textElement)
-                                textElement = TextElement()
-                            }
-                        }
-                }
-            }
+            .cardModals(currentModal: $currentModal, card: $card)
     }
 }
 

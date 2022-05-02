@@ -12,9 +12,11 @@ struct TextPicker: View {
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
-        TextField("Enter text", text: $textElement.text) {
+        TextField("Enter text!!!", text: $textElement.text) {
             dismiss()
         }
+        .textFieldStyle(.roundedBorder)
+        .padding(.horizontal)
     }
 }
 

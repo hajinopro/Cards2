@@ -11,6 +11,8 @@
 		7A1660F6280ECE8D0093DF73 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1660F5280ECE8D0093DF73 /* Card.swift */; };
 		7A1660F8280ECE9D0093DF73 /* CardStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1660F7280ECE9D0093DF73 /* CardStore.swift */; };
 		7A1660FA280ED7780093DF73 /* CardElementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1660F9280ED7780093DF73 /* CardElementView.swift */; };
+		7A1E5D87281FD7DC00A5956D /* CardElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1E5D86281FD7DC00A5956D /* CardElement.swift */; };
+		7A1E5D89281FD90D00A5956D /* CardModalViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1E5D88281FD90D00A5956D /* CardModalViews.swift */; };
 		7A322A70280D7E7B0098CA7D /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A322A6F280D7E7B0098CA7D /* Settings.swift */; };
 		7A322A73280D7F990098CA7D /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A322A72280D7F990098CA7D /* ColorExtensions.swift */; };
 		7A322A78280D832E0098CA7D /* CardToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A322A77280D832E0098CA7D /* CardToolbar.swift */; };
@@ -50,6 +52,8 @@
 		7A1660F5280ECE8D0093DF73 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		7A1660F7280ECE9D0093DF73 /* CardStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStore.swift; sourceTree = "<group>"; };
 		7A1660F9280ED7780093DF73 /* CardElementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardElementView.swift; sourceTree = "<group>"; };
+		7A1E5D86281FD7DC00A5956D /* CardElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardElement.swift; sourceTree = "<group>"; };
+		7A1E5D88281FD90D00A5956D /* CardModalViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModalViews.swift; sourceTree = "<group>"; };
 		7A322A6F280D7E7B0098CA7D /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		7A322A72280D7F990098CA7D /* ColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
 		7A322A77280D832E0098CA7D /* CardToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardToolbar.swift; sourceTree = "<group>"; };
@@ -168,6 +172,7 @@
 				7A3D82A528102358003D4D7D /* CardsView.swift */,
 				7AE1B5AB280B7D75004BA8B8 /* CardsListView.swift */,
 				7AE1B5B5280B837D004BA8B8 /* CardDetailView.swift */,
+				7A1E5D88281FD90D00A5956D /* CardModalViews.swift */,
 				7AE1B5AD280B7E31004BA8B8 /* CardThumbnailView.swift */,
 				7AE1B5B9280B847B004BA8B8 /* CardBottomToolbar.swift */,
 				7A1660F9280ED7780093DF73 /* CardElementView.swift */,
@@ -205,6 +210,7 @@
 				7AE1B5B3280B80BD004BA8B8 /* ViewState.swift */,
 				7AE1B5B7280B842A004BA8B8 /* CardModal.swift */,
 				7A7E7F7A280C0B5A005C4784 /* Transform.swift */,
+				7A1E5D86281FD7DC00A5956D /* CardElement.swift */,
 				7A1660F5280ECE8D0093DF73 /* Card.swift */,
 				7A1660F7280ECE9D0093DF73 /* CardStore.swift */,
 				7A91A75B281812B000530A84 /* Shapes.swift */,
@@ -294,6 +300,7 @@
 				7A074FEB281BE55B00130436 /* AngleExtensions.swift in Sources */,
 				7A91A75C281812B000530A84 /* Shapes.swift in Sources */,
 				7A1660F6280ECE8D0093DF73 /* Card.swift in Sources */,
+				7A1E5D87281FD7DC00A5956D /* CardElement.swift in Sources */,
 				7A3D82A8281023D8003D4D7D /* SingleCardView.swift in Sources */,
 				7A322A7A280D84110098CA7D /* PreviewData.swift in Sources */,
 				7AE1B59E280B7D13004BA8B8 /* Cards2App.swift in Sources */,
@@ -316,6 +323,7 @@
 				7A7E7F79280C0AEF005C4784 /* ResizableView.swift in Sources */,
 				7A3309BF2816BCBB00E4363C /* CanvasView.swift in Sources */,
 				7A42337D28118D9600DE8497 /* StickerPicker.swift in Sources */,
+				7A1E5D89281FD90D00A5956D /* CardModalViews.swift in Sources */,
 				7AA4965B281AB09100CC5BDA /* UIImageExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
