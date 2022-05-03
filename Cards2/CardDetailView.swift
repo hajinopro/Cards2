@@ -13,10 +13,9 @@ struct CardDetailView: View {
     @State private var currentModal: CardModal?
     @Environment(\.scenePhase) private var scenePhase
     
-    var content: some View {
+    func content(size: CGSize) -> some View {
         ZStack {
             card.backgroundColor
-                .edgesIgnoringSafeArea(.all)
                 .onTapGesture {
                     viewState.selectedElement = nil
                 }
@@ -27,7 +26,7 @@ struct CardDetailView: View {
                             Label("Delete", systemImage: "trash")
                         }
                     }
-                    .resizableView(transform: bindingTransform(for: element))
+                    .resizableView(transform: bindingTransform(for: element), viewScale: calculateScale(size))
                     .frame(width: element.transform.size.width, height: element.transform.size.height)
                     .onTapGesture {
                         viewState.selectedElement = element
@@ -42,18 +41,40 @@ struct CardDetailView: View {
     }
     
     var body: some View {
-        content
-            .onChange(of: scenePhase, perform: { newValue in
-                if newValue == .inactive {
+        GeometryReader { proxy in
+            content(size: proxy.size)
+                .onChange(of: scenePhase, perform: { newValue in
+                    if newValue == .inactive {
+                        card.save()
+                    }
+                })
+                .onDisappear {
                     card.save()
                 }
-            })
-            .onDisappear {
-                card.save()
-            }
-            .onDrop(of: [.image], delegate: CardDrop(card: $card))
-            .cardToolbar(currentModal: $currentModal)
-            .cardModals(currentModal: $currentModal, card: $card)
+                .onDrop(of: [.image], delegate: CardDrop(card: $card, size: proxy.size, frame: proxy.frame(in: .global)))
+                .cardToolbar(currentModal: $currentModal)
+                .cardModals(currentModal: $currentModal, card: $card)
+                .frame(width: calculateSize(proxy.size).width, height: calculateSize(proxy.size).height)
+                .clipped()
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+        }
+    }
+    
+    func calculateSize(_ size: CGSize) -> CGSize {
+        var newSize = size
+        let ratio = Settings.cardSize.width / Settings.cardSize.height
+        
+        if size.width < size.height  { // Portrait Mode
+            newSize.height = size.width / ratio
+        } else { // Landscape Mode
+            newSize.width = size.height * ratio
+        }
+        return newSize
+    }
+    
+    func calculateScale(_ size: CGSize) -> CGFloat {
+        let newSize = calculateSize(size)
+        return newSize.width / Settings.cardSize.width
     }
 }
 
@@ -66,6 +87,10 @@ struct CardDetailView_Previews: PreviewProvider {
         }
     }
     static var previews: some View {
-        CardDtailViewPreview()
+        Group {
+            CardDtailViewPreview()
+            CardDtailViewPreview()
+                .previewInterfaceOrientation(.landscapeLeft)
+        }
     }
 }

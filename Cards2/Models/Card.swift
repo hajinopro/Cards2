@@ -22,10 +22,10 @@ struct Card: Identifiable {
         save()
     }
     
-    mutating func addElement(uiImage: UIImage) {
+    mutating func addElement(uiImage: UIImage, transform: Transform = Transform()) {
         let imageFilename = uiImage.save()
         let image = Image(uiImage: uiImage)
-        let element = ImageElement(image: image, imageFilename: imageFilename)
+        let element = ImageElement(transform: transform, image: image, imageFilename: imageFilename)
         elements.append(element)
         save()
     }

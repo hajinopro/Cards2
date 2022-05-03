@@ -22,7 +22,9 @@ struct CardDrop: DropDelegate {
                     } else {
                         if let image = image as? UIImage {
                             DispatchQueue.main.async {
-                                card.addElement(uiImage: image)
+                                let offset = calculateOffset(location: info.location)
+                                let transform = Transform(offset: offset)
+                                card.addElement(uiImage: image, transform: transform)
                             }
                         }
                     }

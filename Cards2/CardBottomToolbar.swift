@@ -43,6 +43,7 @@ struct CardBottomToolbar_Previews: PreviewProvider {
 }
 
 struct ToolbarButtonView: View {
+    @Environment(\.verticalSizeClass) var verticalSizeClass
     let modal: CardModal
     private let modalButton: [CardModal: (text: String, imageName: String)] = [
         .photoPicker: ("Photos", "photo"),
@@ -52,15 +53,31 @@ struct ToolbarButtonView: View {
         .pencilPicker: ("Pencil", "pencil")
     ]
     
+    func regularView(_ imageName: String, _ text: String) -> some View {
+        VStack(spacing: 2) {
+            Image(systemName: imageName)
+            Text(text)
+        }
+        .frame(minWidth: 60)
+        .padding(.top, 5)
+    }
+    
+    func compactView(_ imageName: String) -> some View {
+        VStack(spacing: 2) {
+            Image(systemName: imageName)
+        }
+        .frame(minWidth: 60)
+        .padding(.top, 5)
+    }
+    
     var body: some View {
         if let text = modalButton[modal]?.text,
            let imageName = modalButton[modal]?.imageName {
-            VStack {
-                Image(systemName: imageName)
-                    .font(.largeTitle)
-                Text(text)
+            if verticalSizeClass == .regular {
+                regularView(imageName, text)
+            } else {
+                compactView(imageName)
             }
-            .padding(.top)
         }
     }
 }
