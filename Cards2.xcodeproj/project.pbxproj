@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A04E05E2823F1E90079C072 /* Carousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A04E05D2823F1E90079C072 /* Carousel.swift */; };
+		7A04E0602823F2180079C072 /* RenderableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A04E05F2823F2180079C072 /* RenderableView.swift */; };
+		7A04E0622823F2450079C072 /* ShareSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A04E0612823F2450079C072 /* ShareSheetView.swift */; };
+		7A04E0642823F2690079C072 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A04E0632823F2690079C072 /* TextView.swift */; };
+		7A04E0662823F28D0079C072 /* AppFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A04E0652823F28D0079C072 /* AppFonts.swift */; };
 		7A074FEB281BE55B00130436 /* AngleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A074FEA281BE55B00130436 /* AngleExtensions.swift */; };
 		7A1660F6280ECE8D0093DF73 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1660F5280ECE8D0093DF73 /* Card.swift */; };
 		7A1660F8280ECE9D0093DF73 /* CardStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1660F7280ECE9D0093DF73 /* CardStore.swift */; };
@@ -47,6 +52,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7A04E05D2823F1E90079C072 /* Carousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Carousel.swift; sourceTree = "<group>"; };
+		7A04E05F2823F2180079C072 /* RenderableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderableView.swift; sourceTree = "<group>"; };
+		7A04E0612823F2450079C072 /* ShareSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSheetView.swift; sourceTree = "<group>"; };
+		7A04E0632823F2690079C072 /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
+		7A04E0652823F28D0079C072 /* AppFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFonts.swift; sourceTree = "<group>"; };
 		7A074FEA281BE55B00130436 /* AngleExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AngleExtensions.swift; sourceTree = "<group>"; };
 		7A1660F5280ECE8D0093DF73 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		7A1660F7280ECE9D0093DF73 /* CardStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStore.swift; sourceTree = "<group>"; };
@@ -99,6 +109,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7A04E0512823F1620079C072 /* Supporting Code */ = {
+			isa = PBXGroup;
+			children = (
+				7A04E05D2823F1E90079C072 /* Carousel.swift */,
+				7A04E05F2823F2180079C072 /* RenderableView.swift */,
+				7A04E0612823F2450079C072 /* ShareSheetView.swift */,
+				7A04E0542823F1980079C072 /* Text Entry */,
+			);
+			path = "Supporting Code";
+			sourceTree = "<group>";
+		};
+		7A04E0542823F1980079C072 /* Text Entry */ = {
+			isa = PBXGroup;
+			children = (
+				7A04E0632823F2690079C072 /* TextView.swift */,
+				7A04E0652823F28D0079C072 /* AppFonts.swift */,
+			);
+			path = "Text Entry";
+			sourceTree = "<group>";
+		};
 		7A322A71280D7E860098CA7D /* Configs */ = {
 			isa = PBXGroup;
 			children = (
@@ -166,19 +196,12 @@
 				7AE1B59D280B7D13004BA8B8 /* Cards2App.swift */,
 				7A322A71280D7E860098CA7D /* Configs */,
 				7AE1B5BB280BB1DD004BA8B8 /* Views */,
-				7A3D82A528102358003D4D7D /* CardsView.swift */,
-				7AE1B5AB280B7D75004BA8B8 /* CardsListView.swift */,
-				7AE1B5B5280B837D004BA8B8 /* CardDetailView.swift */,
-				7A1E5D88281FD90D00A5956D /* CardModalViews.swift */,
-				7AE1B5AD280B7E31004BA8B8 /* CardThumbnailView.swift */,
-				7AE1B5B9280B847B004BA8B8 /* CardBottomToolbar.swift */,
-				7A1660F9280ED7780093DF73 /* CardElementView.swift */,
-				7A3D82A7281023D8003D4D7D /* SingleCardView.swift */,
 				7A3309B92816B3ED00E4363C /* CardModalViews */,
 				7AE1B5BC280BB1EB004BA8B8 /* Models */,
 				7A322A76280D80C80098CA7D /* ViewModifiers */,
 				7A322A75280D7FB00098CA7D /* Extensions */,
 				7AE1B5A1280B7D14004BA8B8 /* Assets.xcassets */,
+				7A04E0512823F1620079C072 /* Supporting Code */,
 				7A42337A28118D5D00DE8497 /* Stickers */,
 				7AE1B5A3280B7D14004BA8B8 /* Preview Content */,
 			);
@@ -197,6 +220,14 @@
 		7AE1B5BB280BB1DD004BA8B8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7A3D82A528102358003D4D7D /* CardsView.swift */,
+				7AE1B5AB280B7D75004BA8B8 /* CardsListView.swift */,
+				7AE1B5B5280B837D004BA8B8 /* CardDetailView.swift */,
+				7A1E5D88281FD90D00A5956D /* CardModalViews.swift */,
+				7AE1B5AD280B7E31004BA8B8 /* CardThumbnailView.swift */,
+				7AE1B5B9280B847B004BA8B8 /* CardBottomToolbar.swift */,
+				7A1660F9280ED7780093DF73 /* CardElementView.swift */,
+				7A3D82A7281023D8003D4D7D /* SingleCardView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -295,6 +326,7 @@
 				7A3D82A628102358003D4D7D /* CardsView.swift in Sources */,
 				7A074FEB281BE55B00130436 /* AngleExtensions.swift in Sources */,
 				7A91A75C281812B000530A84 /* Shapes.swift in Sources */,
+				7A04E0642823F2690079C072 /* TextView.swift in Sources */,
 				7A1660F6280ECE8D0093DF73 /* Card.swift in Sources */,
 				7A1E5D87281FD7DC00A5956D /* CardElement.swift in Sources */,
 				7A3D82A8281023D8003D4D7D /* SingleCardView.swift in Sources */,
@@ -307,6 +339,8 @@
 				7A7E7F7D280C0D78005C4784 /* Operators.swift in Sources */,
 				7AE1B5AE280B7E31004BA8B8 /* CardThumbnailView.swift in Sources */,
 				7A3309BD2816BA7900E4363C /* CardDrop.swift in Sources */,
+				7A04E0622823F2450079C072 /* ShareSheetView.swift in Sources */,
+				7A04E05E2823F1E90079C072 /* Carousel.swift in Sources */,
 				7AE1B5B8280B842A004BA8B8 /* CardModal.swift in Sources */,
 				7AAC057D281D626200AF7162 /* TextPicker.swift in Sources */,
 				7A1660FA280ED7780093DF73 /* CardElementView.swift in Sources */,
@@ -319,7 +353,9 @@
 				7A7E7F79280C0AEF005C4784 /* ResizableView.swift in Sources */,
 				7A3309BF2816BCBB00E4363C /* CanvasView.swift in Sources */,
 				7A42337D28118D9600DE8497 /* StickerPicker.swift in Sources */,
+				7A04E0662823F28D0079C072 /* AppFonts.swift in Sources */,
 				7A1E5D89281FD90D00A5956D /* CardModalViews.swift in Sources */,
+				7A04E0602823F2180079C072 /* RenderableView.swift in Sources */,
 				7AA4965B281AB09100CC5BDA /* UIImageExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

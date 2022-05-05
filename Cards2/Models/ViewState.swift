@@ -7,6 +7,10 @@
 
 import SwiftUI
 
+enum CardListState {
+  case list, carousel
+}
+
 class ViewState: ObservableObject {
     @Published var showAllCards = true {
         didSet {
@@ -33,4 +37,9 @@ class ViewState: ObservableObject {
         selectedElement = nil
     }
     
+    // Determines which view to show in `CardsListView`
+    @Published var cardListState: CardListState = .list
+
+    // For sharing the card with a screenshot - see `RenderableView`
+    var shouldScreenshot = false
 }
