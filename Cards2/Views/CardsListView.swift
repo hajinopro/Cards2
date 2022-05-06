@@ -25,7 +25,9 @@ struct CardsListView: View {
                                 }
                             }
                             .onTapGesture {
-                                viewState.showAllCards.toggle()
+                                withAnimation {
+                                    viewState.showAllCards.toggle()
+                                }
                                 viewState.selectedCard = card
                             }
                     }

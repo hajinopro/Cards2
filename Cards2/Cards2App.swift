@@ -14,7 +14,7 @@ struct Cards2App: App {
     
     var body: some Scene {
         WindowGroup {
-            CardsView()
+            AppLoadingView()
                 .environmentObject(viewState)
                 .environmentObject(store)
                 .onAppear {
